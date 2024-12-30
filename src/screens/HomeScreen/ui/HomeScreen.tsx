@@ -1,18 +1,28 @@
-import {NavigationProp} from "@/shared/config";
+import {getUserData} from "@/entity/user/api/selectors/getUserData";
+import {NavigationProp, useAppSelector} from "@/shared/config";
 import {useNavigation} from "@react-navigation/native";
-import React from "react";
+import React, {useEffect} from "react";
 import {View, Text, StyleSheet, Button} from "react-native";
 
 const HomeScreen = () => {
+  const userData = useAppSelector(getUserData);
+
   const navigation = useNavigation<NavigationProp>();
+  useEffect(() => {
+    console.log(userData?.displayName);
+  }, [userData]);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Home Screen</Text>
-      <Button
-        onPress={() => navigation.navigate("SignIn")}
-        title="Go to SignIn"
-      />
+      {userData ? (
+        <Text style={styles.title}>{userData.displayName}</Text>
+      ) : (
+        <Button
+          onPress={() => navigation.navigate("SignIn")}
+          title="Go to SignIn"
+        />
+      )}
     </View>
   );
 };

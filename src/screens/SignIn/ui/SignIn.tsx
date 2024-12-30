@@ -1,34 +1,32 @@
 import React, {useState} from "react";
 import {View, Text, Button, StyleSheet} from "react-native";
 import {onGoogleButtonPress} from "../api/api";
-import {UserCredential} from "firebase/auth";
-
-interface User {
-  name: string;
-}
+import {NavigationProp, useAppDispatch, useAppSelector} from "@/shared/config";
+import {setUser} from "@/entity/user/model/userSlice";
+import {useNavigation} from "@react-navigation/native";
 
 const SignIn = () => {
-  const [userInfo, setUserInfo] = useState<User | null>(null);
+  // const [userInfo, setUserInfo] = useState<FirebaseAuthTypes.User | null>(null);
   const [error, setError] = useState(null);
+  const dispatch = useAppDispatch();
+  const navigation = useNavigation<NavigationProp>();
+
   const signIn = async () => {
     onGoogleButtonPress().then(res => {
-      if (res) {
-        setUserInfo({name: res.user.displayName || ""});
+      if (res && res.user) {
+        // setUserInfo(res.user);
+        dispatch(setUser(res.user));
+        // navigation.navigate("Home");
       }
     });
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Google Sign In</Text>
-      {userInfo ? (
-        <View>
-          <Text>Welcome {userInfo.name}</Text>
-        </View>
-      ) : (
+      <>
+        <Text style={styles.title}>Google Sign In</Text>
         <Button title="Sign in with Google" onPress={signIn} color="#4285F4" />
-      )}
-      {error && <Text style={styles.error}>{error}</Text>}
+      </>
     </View>
   );
 };
