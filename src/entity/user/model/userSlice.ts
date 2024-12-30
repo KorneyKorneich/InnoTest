@@ -1,20 +1,29 @@
+import { Nullable } from '@/shared/lib'
 import { createSlice } from '@reduxjs/toolkit'
+import { User } from 'firebase/auth'
 
-export interface CounterState {
-  value: number
+interface UserState {
+  user: Nullable<User>;
 }
 
-const initialState: CounterState = {
-  value: 0,
+const initialState: UserState = {
+  user: null
 }
 
-export const userSlice = createSlice({
-  name: 'user',
+const userSlice = createSlice({
+  name: "user",
   initialState,
   reducers: {
+    setUser: (state, action) => {
+      state.user = action.payload
+      console.log(action.payload);
+    },
+    clearUser: (state) => {
+      state.user = null
+    },
   },
 })
 
-export const { } = userSlice.actions
+export const { setUser, clearUser } = userSlice.actions
 
 export default userSlice.reducer

@@ -1,17 +1,20 @@
-import {createStaticNavigation} from "@react-navigation/native";
+import {
+  createStaticNavigation,
+  NavigationContainer,
+} from "@react-navigation/native";
 import React from "react";
-import {View, Text, StyleSheet} from "react-native";
-import {RootStack} from "../model/navigation/config";
+import {StyleSheet} from "react-native";
+import {NavigationProvider} from "../model/navigation/StackNavigator";
 import {Provider} from "react-redux";
 import {store} from "@/shared/config";
 
-const Navigation = createStaticNavigation(RootStack);
-
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <Navigation />;
-    </Provider>
+    <NavigationContainer>
+      <Provider store={store}>
+        <NavigationProvider />
+      </Provider>
+    </NavigationContainer>
   );
 };
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "461307165635",
+    "project_id": "innotest-5a289",
+    "storage_bucket": "innotest-5a289.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461307165635:android:1a3618384a8c35938b5b76",
+        "android_client_info": {
+          "package_name": "com.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461307165635-b70uqg6lqech4o1fmprvejn317i52bck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHbNipQEo7JznWIv2dqmVguZTFOxz47aU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461307165635-b70uqg6lqech4o1fmprvejn317i52bck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
