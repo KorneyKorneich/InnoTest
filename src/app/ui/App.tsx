@@ -1,7 +1,4 @@
-import {
-  createStaticNavigation,
-  NavigationContainer,
-} from "@react-navigation/native";
+import {NavigationContainer} from "@react-navigation/native";
 import React from "react";
 import {StyleSheet} from "react-native";
 import {NavigationProvider} from "../model/navigation/StackNavigator";

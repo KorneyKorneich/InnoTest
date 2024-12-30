@@ -5,8 +5,10 @@ export type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 export type RootStackParamList = {
   Home: undefined;
   SignIn: undefined;
+  LogOut: undefined;
 };
 export type Props = StaticScreenProps<{
   Home: undefined;
   SignIn: undefined;
+  LogOut: undefined;
 }>;

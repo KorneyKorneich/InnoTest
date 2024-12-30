@@ -1,31 +1,43 @@
 import React, {useState} from "react";
-import {View, Text, Button, StyleSheet} from "react-native";
+import {View, Text, Button, StyleSheet, ActivityIndicator} from "react-native";
 import {onGoogleButtonPress} from "../api/api";
 import {NavigationProp, useAppDispatch, useAppSelector} from "@/shared/config";
-import {setUser} from "@/entity/user/model/userSlice";
+import {setIsLoading, setUser} from "@/entity/user/model/userSlice";
 import {useNavigation} from "@react-navigation/native";
+import {getIsLoading} from "@/entity/user/api/selectors/getIsLoading";
 
 const SignIn = () => {
-  // const [userInfo, setUserInfo] = useState<FirebaseAuthTypes.User | null>(null);
   const [error, setError] = useState(null);
   const dispatch = useAppDispatch();
-  const navigation = useNavigation<NavigationProp>();
+  const isLoading = useAppSelector(getIsLoading);
 
   const signIn = async () => {
-    onGoogleButtonPress().then(res => {
+    dispatch(setIsLoading(true));
+    try {
+      const res = await onGoogleButtonPress();
       if (res && res.user) {
-        // setUserInfo(res.user);
         dispatch(setUser(res.user));
-        // navigation.navigate("Home");
       }
-    });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      dispatch(setIsLoading(false));
+    }
   };
 
   return (
     <View style={styles.container}>
       <>
         <Text style={styles.title}>Google Sign In</Text>
-        <Button title="Sign in with Google" onPress={signIn} color="#4285F4" />
+        {isLoading ? (
+          <ActivityIndicator size="large" color="#0000ff" />
+        ) : (
+          <Button
+            title="Sign in with Google"
+            onPress={signIn}
+            color="#4285F4"
+          />
+        )}
       </>
     </View>
   );

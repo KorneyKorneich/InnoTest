@@ -10,6 +10,7 @@ import {
 } from "@/shared/config";
 import {setUser} from "@/entity/user/model/userSlice";
 import {useEffect} from "react";
+import {LogOut} from "@/screens/LogOut";
 
 export const NavigationProvider = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -27,6 +28,7 @@ export const NavigationProvider = () => {
       {user ? (
         <Stack.Group>
           <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="LogOut" component={LogOut} />
         </Stack.Group>
       ) : (
         <Stack.Group>

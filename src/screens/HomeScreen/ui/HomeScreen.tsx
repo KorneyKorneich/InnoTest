@@ -6,17 +6,19 @@ import {View, Text, StyleSheet, Button} from "react-native";
 
 const HomeScreen = () => {
   const userData = useAppSelector(getUserData);
-
   const navigation = useNavigation<NavigationProp>();
-  useEffect(() => {
-    console.log(userData?.displayName);
-  }, [userData]);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Home Screen</Text>
       {userData ? (
-        <Text style={styles.title}>{userData.displayName}</Text>
+        <>
+          <Text style={styles.title}>{userData.displayName}</Text>
+          <Button
+            onPress={() => navigation.navigate("LogOut")}
+            title="Log Out"
+          />
+        </>
       ) : (
         <Button
           onPress={() => navigation.navigate("SignIn")}

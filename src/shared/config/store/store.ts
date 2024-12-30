@@ -6,6 +6,10 @@ export const store = configureStore({
   reducer: {
     userReducer: userReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 })
 
 export type AppStore = typeof store
