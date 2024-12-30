@@ -1,7 +1,7 @@
 import auth from "@react-native-firebase/auth";
 export const logOutHandler = async () => {
   try {
-    await auth().signOut().then(() => console.log('User signed out!'));
+    await auth().signOut();
   } catch (error) {
     throw error;
   }
