@@ -1,28 +1,20 @@
-import {getUserData} from "@/entity/user/api/selectors/getUserData";
-import {NavigationProp, useAppSelector} from "@/shared/config";
+import {getUserData} from "@/store/entities/user/selectors/getUserData";
 import {useNavigation} from "@react-navigation/native";
-import React, {useEffect} from "react";
+import React from "react";
 import {View, Text, StyleSheet, Button} from "react-native";
+import {useAppSelector} from "@/store/hooks/reduxHooks";
+import {NavigationProp} from "@/navigation/config";
 
-const HomeScreen = () => {
+export const HomeScreen = () => {
   const userData = useAppSelector(getUserData);
 
   const navigation = useNavigation<NavigationProp>();
-  useEffect(() => {
-    console.log(userData?.displayName);
-  }, [userData]);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to Home Screen</Text>
-      {userData ? (
-        <Text style={styles.title}>{userData.displayName}</Text>
-      ) : (
-        <Button
-          onPress={() => navigation.navigate("SignIn")}
-          title="Go to SignIn"
-        />
-      )}
+      <Text style={styles.title}>{userData?.displayName}</Text>
+      <Button onPress={() => navigation.navigate("LogOut")} title="Log out" />
     </View>
   );
 };
@@ -40,5 +32,3 @@ const styles = StyleSheet.create({
     color: "#333",
   },
 });
-
-export default HomeScreen;

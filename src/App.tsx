@@ -4,9 +4,9 @@ import {
 } from "@react-navigation/native";
 import React from "react";
 import {StyleSheet} from "react-native";
-import {NavigationProvider} from "../model/navigation/StackNavigator";
 import {Provider} from "react-redux";
-import {store} from "@/shared/config";
+import {NavigationProvider} from "@/navigation/StackNavigator/root";
+import { store } from "./store/store";
 
 const App: React.FC = () => {
   return (

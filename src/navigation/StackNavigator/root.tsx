@@ -1,15 +1,12 @@
-import {HomeScreen} from "@/screens/HomeScreen";
-import {SignIn} from "@/screens/SignIn";
+import {AuthorizedStack} from "@/navigation/StackNavigator/authorizedStack";
+import {UnauthorizedStack} from "@/navigation/StackNavigator/UnauthoizedStack";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import auth from "@react-native-firebase/auth";
-import {getUserData} from "@/entity/user/api/selectors/getUserData";
-import {
-  RootStackParamList,
-  useAppDispatch,
-  useAppSelector,
-} from "@/shared/config";
-import {setUser} from "@/entity/user/model/userSlice";
+import {getUserData} from "@/store/entities/user/selectors/getUserData";
+import {RootStackParamList} from "../config";
 import {useEffect} from "react";
+import {useAppDispatch, useAppSelector} from "@/store/hooks/reduxHooks";
+import {setUser} from "@/store/entities/user/userSlice";
 
 export const NavigationProvider = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -24,15 +21,7 @@ export const NavigationProvider = () => {
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      {user ? (
-        <Stack.Group>
-          <Stack.Screen name="Home" component={HomeScreen} />
-        </Stack.Group>
-      ) : (
-        <Stack.Group>
-          <Stack.Screen name="SignIn" component={SignIn} />
-        </Stack.Group>
-      )}
+      {user ? AuthorizedStack() : UnauthorizedStack()}
     </Stack.Navigator>
   );
 };
