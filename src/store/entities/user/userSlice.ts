@@ -1,4 +1,4 @@
-import { Nullable } from '@/shared/lib'
+import { Nullable } from '@/helpers/helpers';
 import { createSlice } from '@reduxjs/toolkit'
 import { User } from 'firebase/auth'
 
@@ -18,11 +18,9 @@ const userSlice = createSlice({
   reducers: {
     setUser: (state, action) => {
       state.user = action.payload
-      state.isLoading = false;
     },
     clearUser: (state) => {
       state.user = null
-      state.isLoading = false;
     },
     setIsLoading: (state, action) => {
       state.isLoading = action.payload

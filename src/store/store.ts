@@ -1,5 +1,4 @@
-//!! not according to the FSD architecture, but it's the only way to make it work
-import { userReducer } from '@/entity/user'
+import  userReducer from '@/store/entities/user/userSlice'
 import { configureStore } from '@reduxjs/toolkit'
 
 export const store = configureStore({

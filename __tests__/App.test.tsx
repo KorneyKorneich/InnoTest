@@ -4,7 +4,7 @@
 
 import "react-native";
 import React from "react";
-import App from "../src/app/ui/App";
+import App from "../src/App";
 
 import {it} from "@jest/globals";
 

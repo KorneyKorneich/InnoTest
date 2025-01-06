@@ -8,8 +8,9 @@ module.exports = {
         alias: {
           "@": "./src",
           '@screens/*': './src/screens/*',
-          '@shared/*': './src/shared/*',
-          
+          '@store/*': './src/store/*',
+          '@navigation/*': './src/navigation/*',
+          '@entity/*': './src/entity/*',
         },
       },
     ],
