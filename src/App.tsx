@@ -1,9 +1,9 @@
 import {NavigationContainer} from "@react-navigation/native";
-import React from "react";
+import React, {useEffect} from "react";
 import {StyleSheet} from "react-native";
 import {Provider} from "react-redux";
 import {NavigationProvider} from "@/navigation/StackNavigator/root";
-import { store } from "./store/store";
+import {store} from "./store/store";
 
 const App: React.FC = () => {
   return (
