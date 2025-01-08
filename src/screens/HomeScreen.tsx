@@ -13,15 +13,15 @@ export const HomeScreen = () => {
   const dispatch = useAppDispatch();
 
   const fetchUserImg = useCallback(async () => {
-    if (userData?.uid) {
-      const image = await getUserProfileImage(userData.uid);
-      dispatch(setUserImage(image));
-    }
-  }, [userData?.uid]);
+      if (userData?.uid) {
+        const image = await getUserProfileImage(userData.uid);
+        dispatch(setUserImage(image));
+      }
+  }, [userData?.uid, getUserProfileImage]);
 
   useEffect(() => {
     fetchUserImg();
-  }, [userData?.uid]);
+  }, [fetchUserImg]);
 
   return (
     <View style={styles.container}>

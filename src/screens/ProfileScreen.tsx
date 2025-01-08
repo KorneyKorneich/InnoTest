@@ -57,7 +57,7 @@ const ProfileScreen = () => {
 			)}
 		</View>
 	);
-};
+}; 
 
 const styles = StyleSheet.create({
 	container: {

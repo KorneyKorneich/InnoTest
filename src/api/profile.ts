@@ -1,5 +1,4 @@
 import { getDoc, updateDoc } from "firebase/firestore";
-
 import { doc } from "firebase/firestore";
 import { db } from "./firebase/firebase";
 import { launchImageLibrary, launchCamera, ImagePickerResponse } from "react-native-image-picker";
