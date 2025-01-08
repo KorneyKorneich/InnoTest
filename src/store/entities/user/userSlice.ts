@@ -5,11 +5,13 @@ import { User } from 'firebase/auth'
 interface UserState {
   user: Nullable<User>;
   isLoading: boolean;
+  userImage: Nullable<string>;
 }
 
 const initialState: UserState = {
   user: null,
   isLoading: false,
+  userImage: null,
 }
 
 const userSlice = createSlice({
@@ -25,9 +27,12 @@ const userSlice = createSlice({
     setIsLoading: (state, action) => {
       state.isLoading = action.payload
     },
+    setUserImage: (state, action) => {
+      state.userImage = action.payload
+    },
   },
 })
 
-export const { setUser, clearUser, setIsLoading } = userSlice.actions
+export const { setUser, clearUser, setIsLoading, setUserImage } = userSlice.actions
 
 export default userSlice.reducer

@@ -6,9 +6,11 @@ export type RootStackParamList = {
   Home: undefined;
   SignIn: undefined;
   LogOut: undefined;
+  Profile: undefined;
 };
 export type Props = StaticScreenProps<{
   Home: undefined;
   SignIn: undefined;
   LogOut: undefined;
+  Profile: undefined;
 }>;
