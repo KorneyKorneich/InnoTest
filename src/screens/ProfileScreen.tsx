@@ -12,7 +12,7 @@ import { getUserData } from "@/store/entities/user/selectors/getUserData";
 import { getIsLoading } from "@/store/entities/user/selectors/getIsLoading";
 import { handleLogOut } from "@/api/logOut";
 import { getUserImage } from "@/store/entities/user/selectors/getUserImage";
-import { handleImagePick } from "@/api/profile";
+import { handleImagePick, handlePhotoCapture } from "@/api/profile";
 
 const ProfileScreen = () => {
 	const dispatch = useAppDispatch();
@@ -44,6 +44,11 @@ const ProfileScreen = () => {
 						color="#FF0000"
 					/>
 					<Button
+						title="Take profile image"
+						onPress={() => handlePhotoCapture(userData?.uid || "", dispatch)}
+						color="#FF0000"
+					/>
+					<Button
 						title="Log Out"
 						onPress={() => handleLogOut(dispatch)}
 						color="#FF0000"
@@ -52,7 +57,7 @@ const ProfileScreen = () => {
 			)}
 		</View>
 	);
-};
+}; 
 
 const styles = StyleSheet.create({
 	container: {

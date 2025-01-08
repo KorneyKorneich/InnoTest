@@ -1,6 +1,6 @@
 # Innotest
 
-Test task for the Innwise internship.
+Test task for the Innowise internship.
 
 ## Technologies
 
