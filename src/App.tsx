@@ -1,5 +1,5 @@
 import {NavigationContainer} from "@react-navigation/native";
-import React, {useEffect} from "react";
+import React from "react";
 import {StyleSheet} from "react-native";
 import {Provider} from "react-redux";
 import {NavigationProvider} from "@/navigation/StackNavigator/root";
