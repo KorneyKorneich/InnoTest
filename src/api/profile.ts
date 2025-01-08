@@ -8,7 +8,6 @@ import { AppDispatch } from "@/store/store";
 
 export const getUserProfileImage = async (uid: string) => {
   const res = (await getDoc(doc(db, "users", uid)));
-//   console.log(res.data()?.photo)
   return res.data()?.photo;
 };
 
