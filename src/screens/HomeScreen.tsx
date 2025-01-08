@@ -15,7 +15,6 @@ export const HomeScreen = () => {
   const fetchUserImg = useCallback(async () => {
     if (userData?.uid) {
       const image = await getUserProfileImage(userData.uid);
-      console.log("homescreen", image);
       dispatch(setUserImage(image));
     }
   }, [userData?.uid]);
