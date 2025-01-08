@@ -1,4 +1,4 @@
-import { Nullable } from '@/helpers/helpers';
+import { Nullable } from '@/helpers/common';
 import { createSlice } from '@reduxjs/toolkit'
 import { User } from 'firebase/auth'
 
